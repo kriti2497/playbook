@@ -1,0 +1,34 @@
+<p class="text-center">PLAYBOOK</p>
+<div
+  cdkDropList
+  [cdkDropListData]="playBookList"
+  id="playBookList"
+  class="play-book"
+  (cdkDropListDropped)="dropNested($event)"
+  >
+
+  <div
+    cdkDropListGroup
+    *ngFor="let group of playBookList"
+    [ngStyle]="{'background': group.color}"
+    cdkDrag
+    [cdkDragData]="group">
+
+    <div
+      cdkDropList
+      id={{group.id}}
+      class="playb-List"
+      [cdkDropListData]="group.contents"
+      [cdkDropListEnterPredicate]="evenPredicate"
+      (cdkDropListDropped)="dropValue($event)">
+
+      <div
+        [ngStyle]="{'background-image': 'url(' + item?.imgUrl + ')', 'background-size': 'cover','background-repeat': 'no-repeat','background-position': 'center'}"
+        *ngFor="let item of group.contents" cdkDrag [cdkDragData]="item" cdkDragPlaceholder>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

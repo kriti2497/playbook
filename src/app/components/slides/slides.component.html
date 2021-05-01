@@ -1,0 +1,15 @@
+<div
+  cdkDropList
+  id="sliderList"
+  [cdkDropListData]="sliderList"
+  cdkDropListConnectedTo="playBookList"
+  class="slider-list"
+  (cdkDropListDropped)="drop($event)"
+>
+  <p class="text-center">SLIDERS</p>
+  <div
+    [ngStyle]="{ background: item.color }"
+    *ngFor="let item of sliderList"
+    cdkDrag
+  ></div>
+</div>
