@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
 
   playBookList: PlayBook[] = [
     {
-      id: 6,
+      id: 7,
       color: 'pink',
       contents: []
     },
